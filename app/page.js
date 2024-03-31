@@ -3,9 +3,9 @@ import Image from "next/image";
 
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 
-import SectionTitle from "./components/section-title";
-import Cta from "./components/cta";
-import Footer from "./components/footer";
+import SectionTitle from "../components/section-title";
+import Cta from "../components/cta";
+import Footer from "../components/footer";
 
 import bgHeroImage from '../public/hero-img.jpg';
 import galleryImg1 from '../public/gallery1.jpg';
