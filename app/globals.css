@@ -7,10 +7,16 @@
 
 @layer base {
   body {
-    @apply font-sans;
+    @apply font-sans text-sm lg:text-base;
   }
   h1, h2, h3, h4 {
     @apply font-serif;
+  }
+  h1 {
+    @apply text-5xl sm:text-7xl;
+  }
+  h2 {
+    @apply text-2xl sm:text-4xl;
   }
 }
 
@@ -19,6 +25,6 @@
     @apply px-4 max-w-5xl mx-auto;
   }
   .btn {
-    @apply px-6 py-4 bg-primary text-white text-sm inline-block;
+    @apply px-8 py-4 bg-primary text-white text-sm inline-block;
   }
 }

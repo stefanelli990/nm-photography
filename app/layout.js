@@ -1,5 +1,5 @@
+import Navbar from "./components/navbar";
 import "./globals.css";
-import { Navbar } from "./components/Navbar";
 
 export const metadata = {
   title: "Nemanja Photography",
