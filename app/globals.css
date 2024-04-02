@@ -7,22 +7,25 @@
 
 @layer base {
   body {
-    @apply font-sans text-sm sm:text-base;
+    @apply bg-white font-sans text-sm ;
   }
-  h1, h2, h3, h4 {
-    @apply font-serif;
+  h1, h2, h3 {
+    @apply font-serif uppercase;
   }
   h1 {
-    @apply text-5xl sm:text-7xl uppercase;
+    @apply text-4xl sm:text-7xl;
   }
   h2 {
-    @apply text-2xl sm:text-4xl;
+    @apply text-3xl sm:text-5xl;
+  }
+  h3 {
+    @apply text-2xl sm:text-3xl;
   }
 }
 
 @layer components {
   .section-container {
-    @apply px-4 max-w-7xl mx-auto;
+    @apply px-4 max-w-6xl mx-auto;
   }
   .btn {
     @apply px-8 py-4 bg-primary text-white text-sm inline-block;

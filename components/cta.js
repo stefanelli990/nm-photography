@@ -5,7 +5,8 @@ import ctaImage from '../public/cta-img.jpg';
 export default function Cta() {
     return (
         <section className='relative'>
-            <Image src={ctaImage} fill priority alt="Cta image" className="object-cover z-[-2]"/>
+            <Image src={ctaImage} fill placeholder="blur"
+   alt="Cta image" className="object-cover z-[-2]"/>
             <div className="bg-black/50 absolute top-0 left-0 h-full w-full z-[-1]"></div>
             <div className="section-container py-[50px] sm:py-[100px] text-white">
                 <div className='text-center max-w-xl mx-auto'>

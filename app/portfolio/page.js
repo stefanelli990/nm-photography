@@ -1,26 +1,39 @@
-import Image from "next/image";
+"use client"
 
+import Image from "next/image";
+import { useState } from "react";
 import Cta from "@/components/cta";
 import Footer from "@/components/footer";
 
-import { portfolioImages } from "../data";
+import { portfolioImages, filterCategories } from "../data";
+
 
 export default function Portfolio() {
+
+  const [selectedCategory, setSelectedCagegory] = useState('All');
+
+  const handleSelect = (selected) => {
+    console.log(selected)
+    setSelectedCagegory(selected)
+  }
+
+  const filteredImages = selectedCategory === "All" ? portfolioImages : portfolioImages.filter((image) => image.categories.includes(selectedCategory));
+
   return (
     <>
     <main>
-      <div className="section-container mt-[150px] mb-[50px] sm:mb-[100px]">
+      <div className="section-container pt-[100px] md:pt-[150px] mb-[50px] sm:pb-[100px]">
         <div className="flex justify-center mb-8">
-            <ul className="flex space-x-4">
-                <li className="opacity-25">All</li>
-                <li>Fashion</li>
-                <li>Weeding</li>
-                <li>Event</li>
-                <li>Business</li>
+            <ul className="flex">
+                {filterCategories.map((category, index) => (
+                  <li className="flex items-center" key={index}>
+                    <button onClick={(e) => handleSelect(e.target.textContent)} className={'px-3 py-2 text-sm ' + (selectedCategory === category.name ? 'bg-primary text-white' : '')}>{category.name}</button>
+                  </li>
+                ))}
             </ul>
         </div>
-        <div className="grid grid-cols-3">
-            {portfolioImages.map((image,index) => (
+        <div className="grid grid-cols-3 gap-4">
+            {filteredImages.map((image,index) => (
                 <div key={index} className="aspect-square relative">
                 <Image
                 src={image.imgName}
@@ -29,7 +42,7 @@ export default function Portfolio() {
                 />
             </div>
             ))}
-        </div>
+        </div> 
       </div>
       <Cta/>
     </main>
