@@ -1,6 +1,7 @@
 import Navbar from "../components/navbar";
 import "./globals.css";
 import AnimatedCursor from "react-animated-cursor";
+import { BrowserView } from 'react-device-detect';
 
 export const metadata = {
   title: "Nemanja Photography",
@@ -8,10 +9,13 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  
   return (
     <html lang="en">
       <body>
         <Navbar />
+        <div className="touch-none">
+        <BrowserView>
         <AnimatedCursor
           innerSize={8}
           outerSize={30}
@@ -29,6 +33,9 @@ export default function RootLayout({ children }) {
             mixBlendMode: "exclusion",
           }}
         />
+        
+        </BrowserView>
+        </div>
         {children}
       </body>
     </html>
