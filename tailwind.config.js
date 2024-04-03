@@ -17,7 +17,7 @@ module.exports = {
         serif: ['Playfair Display', 'serif'],
       },
       colors: {
-        primary: '#876d4a'
+        primary: '#bb996c'
       }
     },
   },

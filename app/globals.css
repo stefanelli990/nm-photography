@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 
 @tailwind base;
@@ -6,8 +6,11 @@
 @tailwind utilities;
 
 @layer base {
+  * {
+    @apply tracking-wide;
+  }
   body {
-    @apply bg-white font-sans text-sm ;
+    @apply bg-white font-sans text-sm;
   }
   h1, h2, h3 {
     @apply font-serif uppercase;
@@ -21,6 +24,9 @@
   h3 {
     @apply text-2xl sm:text-3xl;
   }
+  p {
+    @apply leading-relaxed;
+  }
 }
 
 @layer components {
@@ -29,5 +35,8 @@
   }
   .btn {
     @apply px-8 py-4 bg-primary text-white text-sm inline-block;
+  }
+  .inputs {
+    @apply border border-slate-200 p-3 w-full outline-none;
   }
 }
