@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 
 @tailwind base;
@@ -16,7 +16,7 @@
     @apply font-serif uppercase;
   }
   h1 {
-    @apply text-3xl sm:text-6xl;
+    @apply text-[10vw] leading-[100%] sm:text-6xl;
   }
   h2 {
     @apply text-3xl sm:text-5xl;
