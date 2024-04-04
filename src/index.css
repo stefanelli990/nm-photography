@@ -16,7 +16,7 @@
     @apply font-serif uppercase;
   }
   h1 {
-    @apply text-4xl sm:text-7xl;
+    @apply text-3xl sm:text-6xl;
   }
   h2 {
     @apply text-3xl sm:text-5xl;
@@ -27,6 +27,7 @@
   p {
     @apply leading-relaxed;
   }
+  
 }
 
 @layer components {
@@ -34,7 +35,7 @@
     @apply px-4 max-w-6xl mx-auto;
   }
   .btn {
-    @apply px-8 py-4 bg-primary text-white text-sm inline-block;
+    @apply px-8 py-4 border border-white text-sm inline-block;
   }
   .inputs {
     @apply border border-slate-200 p-3 w-full outline-none;
