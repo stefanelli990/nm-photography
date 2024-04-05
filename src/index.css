@@ -19,7 +19,7 @@
     @apply text-[10vw] leading-[100%] sm:text-6xl;
   }
   h2 {
-    @apply text-3xl sm:text-5xl;
+    @apply text-3xl sm:text-4xl;
   }
   h3 {
     @apply text-2xl sm:text-3xl;
@@ -27,7 +27,9 @@
   p {
     @apply leading-relaxed;
   }
-  
+  img {
+    @apply w-full h-full object-cover;
+  }
 }
 
 @layer components {

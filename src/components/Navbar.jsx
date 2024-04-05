@@ -24,7 +24,7 @@ export default function Navbar() {
                         </li>
                     ))}
                 </ul>
-                <button className="flex flex-col space-y-[6px] items-end md:hidden">
+                <button className="flex flex-col space-y-[5px] items-end md:hidden">
                     <div className="h-[2px] w-6 bg-black rounded-lg"></div>
                     <div className="h-[2px] w-8 bg-black rounded-lg"></div>
                     <div className="h-[2px] w-4 bg-black rounded-lg"></div>
