@@ -4,6 +4,7 @@ import servicesImg1 from '../assets/services-img-1.jpg';
 import servicesImg2 from '../assets/services-img-2.jpg';
 import servicesImg3 from '../assets/services-img-3.jpg';
 import ctaImage from '../assets/cta-section-image.jpg';
+import InstagramSection from "../components/InstagramSection";
 
 export default function Home() {
 
@@ -56,16 +57,7 @@ export default function Home() {
                 <div className="bg-black/50 absolute top-0 left-0 right-0 bottom-0 -z-[1]"></div>
             </section>
 
-            <section id="instagram-section" className="bg-slate-100 px-4">
-                <div className="flex justify-center text-center py-[50px]">
-                    <h2>follow me on instagram</h2>
-                </div>
-                <div className="grid grid-cols-4">
-                    <div className="aspect-square">
-                        <img src={ctaImage} alt=""/>
-                    </div>
-                </div>
-            </section>
+            <InstagramSection/>
         </main>
     )
 }
