@@ -5,6 +5,7 @@ import servicesImg2 from '../assets/services-img-2.jpg';
 import servicesImg3 from '../assets/services-img-3.jpg';
 import ctaImage from '../assets/cta-section-image.jpg';
 import InstagramSection from "../components/InstagramSection";
+import Footer from "../components/Footer";
 
 export default function Home() {
 
@@ -58,6 +59,7 @@ export default function Home() {
             </section>
 
             <InstagramSection/>
+            <Footer/>
         </main>
     )
 }
