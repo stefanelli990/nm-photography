@@ -45,7 +45,7 @@ export default function InstagramSection() {
           href="https://www.instagram.com/nemanjaphotography_/"
           target="_blank"
           aria-label="Visit Instagram page"
-          className="bg-white absolute font-semibold p-4 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+          className="bg-white absolute p-4 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
         >
           @nemanjaphotography_
         </a>

@@ -16,9 +16,9 @@ export default function Navbar() {
         <header className="fixed top-0 left-0 right-0 z-10 bg-white">
             <div className="section-container py-3 flex items-center justify-between text-black">
                 <Link to='/' className="font-serif text-base lg:text-xl uppercase">
-                    <img className="w-28" src={logo} alt="Nemanja Photography Logo" />
+                    <img className="w-24" src={logo} alt="Nemanja Photography Logo" />
                 </Link>
-                <ul className="hidden text-sm md:flex space-x-6">
+                <ul className="hidden text-sm space-x-6">
                     {navLinks.map((navLink, index) => (
                         <li key={index} className="group relative">
                             <Link to={navLink.url}>{navLink.name}</Link>
@@ -27,7 +27,7 @@ export default function Navbar() {
                         </li>
                     ))}
                 </ul>
-                <button className="flex flex-col space-y-[6px] items-end md:hidden">
+                <button className="flex flex-col space-y-[7px] items-end">
                     <div className="h-[0.1rem] w-6 bg-black"></div>
                     <div className="h-[0.1rem] w-8 bg-black"></div>
                     <div className="h-[0.1rem] w-4 bg-black"></div>
