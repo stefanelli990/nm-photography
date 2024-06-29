@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import logo from '../assets/nm-logo.svg';
 
 export default function Navbar() {
 
@@ -13,8 +14,10 @@ export default function Navbar() {
 
     return (
         <header className="fixed top-0 left-0 right-0 z-10 bg-white">
-            <div className="section-container py-5 flex items-center justify-between text-black">
-                <Link to='/' className="font-serif text-base lg:text-xl font-semibold uppercase">Nemanja Photography</Link>
+            <div className="section-container py-3 flex items-center justify-between text-black">
+                <Link to='/' className="font-serif text-base lg:text-xl uppercase">
+                    <img className="w-28" src={logo} alt="Nemanja Photography Logo" />
+                </Link>
                 <ul className="hidden text-sm md:flex space-x-6">
                     {navLinks.map((navLink, index) => (
                         <li key={index} className="group relative">
@@ -24,10 +27,10 @@ export default function Navbar() {
                         </li>
                     ))}
                 </ul>
-                <button className="flex flex-col space-y-[5px] items-end md:hidden">
-                    <div className="h-[2px] w-6 bg-black rounded-lg"></div>
-                    <div className="h-[2px] w-8 bg-black rounded-lg"></div>
-                    <div className="h-[2px] w-4 bg-black rounded-lg"></div>
+                <button className="flex flex-col space-y-[6px] items-end md:hidden">
+                    <div className="h-[0.1rem] w-6 bg-black"></div>
+                    <div className="h-[0.1rem] w-8 bg-black"></div>
+                    <div className="h-[0.1rem] w-4 bg-black"></div>
                 </button>
             </div>
         </header>
