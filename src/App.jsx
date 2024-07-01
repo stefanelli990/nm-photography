@@ -1,12 +1,17 @@
-import Navbar from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";
+import { useState } from 'react';
+import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Portfolio from "./pages/Portfolio";
 import Contact from "./pages/Contact";
 import AnimatedCursor from "react-animated-cursor";
+import Menu from "./components/Menu";
 
 function App() {
+
+  const [open, setOpen] = useState(false);
+
   return (
     <>
       <AnimatedCursor
@@ -24,7 +29,8 @@ function App() {
           mixBlendMode: 'exclusion'
         }}
       />
-      <Navbar />
+      <Navbar open={open} setOpen={setOpen}/>
+      <Menu open={open} setOpen={setOpen}/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/portfolio" element={<Portfolio />} />

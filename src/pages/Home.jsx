@@ -7,6 +7,7 @@ import ctaImage from '../assets/cta-section-image.jpg';
 import InstagramSection from "../components/InstagramSection";
 import Footer from "../components/Footer";
 
+
 export default function Home() {
 
     const services = [
