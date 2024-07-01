@@ -29,9 +29,9 @@ export default function InstagramSection() {
   ];
 
   return (
-    <section id="instagram-section" className="bg-slate-100 py-[50px]">
-      <div className="flex justify-center text-center pb-[50px]">
-        <h2>follow me on instagram</h2>
+    <section id="instagram-section" className=" pt-[50px]">
+      <div className="flex justify-center items-center space-x-2 text-center text-slate-500 pb-[50px]">
+        <h2 className='text-2xl uppercase'>follow me on instagram</h2>
       </div>
       <div className="relative">
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5">
