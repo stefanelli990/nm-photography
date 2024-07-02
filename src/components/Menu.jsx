@@ -15,7 +15,8 @@ const menuVariants = {
     },
     closed: {
         right: '-320px',
-        transition: transitionProps
+        transition: transitionProps,
+      
     }
 }
 
@@ -36,13 +37,13 @@ const navLinksVariants = {
     open: {
         transition: {
             staggerChildren: 0.2, 
-            delayChildren: 0.3,   
+            delayChildren: 0.4,   
         },
     },
     closed: {
         transition: {
             staggerChildren: 0.05,
-            staggerDirection: -1, 
+            staggerDirection: 0, 
         },
     },
 };
@@ -51,12 +52,12 @@ const navLinkVariants = {
     open: {
         opacity: 1,
         x: 0,
-        transition: { type: 'spring', stiffness: 50 },
+        transition: { type: 'tween'  },
     },
     closed: {
         opacity: 0,
         x: 40,
-        transition: { type: 'spring', stiffness: 50 },
+        transition: { type: 'tween'  },
     },
 };
 

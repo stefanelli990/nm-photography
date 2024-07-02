@@ -33,7 +33,7 @@
 }
 
 @layer components {
-  .section-container {
+  .wrapper {
     @apply px-4 max-w-6xl mx-auto;
   }
   .btn {
@@ -41,5 +41,8 @@
   }
   .inputs {
     @apply border border-slate-200 p-3 w-full outline-none;
+  }
+  .active {
+    @apply bg-black text-white;
   }
 }

@@ -5,7 +5,7 @@ export default function Navbar({ open, setOpen }) {
 
     return (
         <header className="fixed top-0 left-0 right-0 z-10 bg-white">
-            <div className="section-container py-3 flex items-center justify-between text-black">
+            <div className="wrapper py-3 flex items-center justify-between text-black">
                 <Link to='/' className="font-serif text-base lg:text-xl uppercase">
                     <img className="w-24" src={logo} alt="Nemanja Photography Logo"/>
                 </Link>

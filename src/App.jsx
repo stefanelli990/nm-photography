@@ -7,6 +7,8 @@ import Portfolio from "./pages/Portfolio";
 import Contact from "./pages/Contact";
 import AnimatedCursor from "react-animated-cursor";
 import Menu from "./components/Menu";
+import Footer from "./components/Footer";
+import InstagramSection from "./components/InstagramSection";
 
 function App() {
 
@@ -37,6 +39,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
+      <InstagramSection/>
+      <Footer/>
     </>
   );
 }

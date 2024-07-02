@@ -30,8 +30,8 @@ export default function InstagramSection() {
 
   return (
     <section id="instagram-section" className=" pt-[50px]">
-      <div className="flex justify-center items-center space-x-2 text-center text-slate-500 pb-[50px]">
-        <h2 className='text-2xl uppercase'>follow me on instagram</h2>
+      <div className="flex justify-center items-center space-x-2 text-center pb-[50px]">
+        <h2 className='uppercase'>follow me on instagram</h2>
       </div>
       <div className="relative">
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5">
@@ -41,15 +41,15 @@ export default function InstagramSection() {
             </div>
           ))}
         </div>
+        <div className="bg-black/35 absolute h-full w-full top-0 left-0"></div>
         <a
           href="https://www.instagram.com/nemanjaphotography_/"
           target="_blank"
           aria-label="Visit Instagram page"
-          className="bg-white absolute p-4 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+          className="bg-white absolute p-4 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 "
         >
           @nemanjaphotography_
         </a>
-        <div className="bg-black/35 absolute h-full w-full top-0 left-0"></div>
       </div>
     </section>
   );
