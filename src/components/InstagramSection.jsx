@@ -29,7 +29,7 @@ export default function InstagramSection() {
   ];
 
   return (
-    <section id="instagram-section" className=" pt-[50px]">
+    <section id="instagram-section">
       <div className="flex justify-center items-center space-x-2 text-center pb-[50px]">
         <h2>follow me on instagram</h2>
       </div>

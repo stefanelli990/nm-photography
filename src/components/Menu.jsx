@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from 'framer-motion';
 
@@ -70,6 +71,19 @@ export default function Menu({ open, setOpen }) {
         {name: 'About', url: '/about'},
         {name: 'Contact', url: '/contact'},
     ]
+
+    useEffect(() => {
+        if (open) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'auto';
+        }
+
+        // Cleanup function to reset overflow when component unmounts or open changes
+        return () => {
+            document.body.style.overflow = 'auto';
+        };
+    }, [open]);
 
   return (
     <>

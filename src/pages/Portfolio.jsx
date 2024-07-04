@@ -48,6 +48,7 @@ export default function Portfolio() {
     setOpen(true);
   };
 
+  
   return (
     <main>
       <section id="portfolio">
@@ -84,6 +85,7 @@ export default function Portfolio() {
             close={() => setOpen(false)}
             slides={filteredImages.map(image => ({ src: image.path }))}
             index={currentImageIndex}
+            
           />
         )}
       </section>

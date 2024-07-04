@@ -8,6 +8,7 @@ import Contact from "./pages/Contact";
 import Menu from "./components/Menu";
 import Footer from "./components/Footer";
 import InstagramSection from "./components/InstagramSection";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
 
   return (
     <>
+      <ScrollToTop/>
       <Navbar open={open} setOpen={setOpen}/>
       <Menu open={open} setOpen={setOpen}/>
       <Routes>
