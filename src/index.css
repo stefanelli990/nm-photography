@@ -12,17 +12,20 @@
   body {
     @apply bg-white font-sans text-sm;
   }
-  h1, h2, h3 {
-    @apply font-serif capitalize;
+  h1, h2, h3, h4 {
+    @apply font-serif uppercase;
   }
   h1 {
-    @apply text-[10vw] leading-[100%] sm:text-6xl uppercase;
+    @apply text-[10vw] leading-[100%] sm:text-6xl;
   }
   h2 {
     @apply text-3xl sm:text-4xl;
   }
   h3 {
     @apply text-2xl sm:text-3xl;
+  }
+  h4 {
+    @apply text-lg sm:text-xl;
   }
   p {
     @apply leading-relaxed;

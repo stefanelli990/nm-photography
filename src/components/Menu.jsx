@@ -79,9 +79,9 @@ export default function Menu({ open, setOpen }) {
                 <div className="bg-black w-8 h-[0.1rem] rotate-45 relative top-[1px]"></div>
                 <div className="bg-black w-8 h-[0.1rem] -rotate-45"></div>
             </button>
-            <motion.ul animate={open ? 'open' : 'closed'} variants={navLinksVariants} className="space-y-8 text-xl uppercase">
+            <motion.ul animate={open ? 'open' : 'closed'} variants={navLinksVariants} className="space-y-8 text-xl">
                 {navLinks.map((navLink, index) => (
-                    <motion.li key={index} variants={navLinkVariants} className="group relative">
+                    <motion.li key={index} variants={navLinkVariants} className="group relative uppercase">
                         <Link to={navLink.url} onClick={() => setOpen(false)}>{navLink.name}</Link>
                         {location.pathname === navLink.url && <div className="absolute -bottom-1 bg-black h-[1px] w-5 group-hover:w-5"></div>}
                         <div className="absolute -bottom-1 bg-black h-[1px] w-0 group-hover:w-5 transition-all duration-300"></div>
