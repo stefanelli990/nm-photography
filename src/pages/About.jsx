@@ -10,21 +10,24 @@ export default function About() {
                       <h2 className='mb-4'>Let's introduce myself</h2>
                       <p className='uppercase opacity-50 text-xs'>Exclusive Photographer for IStock - Photo Editor</p>
                   </div>
-                  <div className='relative mb-8 w-full max-w-[400px] lg:mb-0'>
+                  <div className='relative mb-8 w-full max-w-[400px] lg:mb-0 flex-1'>
                       <img src={aboutImg} alt='Nemanja Mohenski posing'/>
+                      <div className="bg-slate-50 w-full h-full absolute left-4 top-4 lg:left-8 lg:top-8 -z-[1]"></div>
                   </div>
-                  <div>
+                  <div className='flex-1'>
                       <div className='hidden mb-8 lg:block'>
                           <h2 className='mb-4'>Let's introduce myself</h2>
                           <p className='uppercase opacity-50 text-xs'>Exclusive Photographer for IStock - Photo Editor</p>
                       </div>
                       <p className='mb-4'>
-                      I value family, nostalgia, movies, good conversation, and love. I feel so lucky to be surrounded by the best humans in the world and I cherish them so much. Some days I wish I could just stop time, and soak this all in for as long as possible. 
+                      Welcome to my photography portfolio! 
                       </p>
                       <p className='mb-4'>
-                      When I photograph weddings, my goal is to find these same connections and wonderful people in my clients lives and document how much love there is between them. My goal is to witness you, to see you fully for who you are and how beautiful you and your love is. 
+                      I'm Nemanja Mohenski, a passionate photographer from Niš, Serbia. My journey began with a simple curiosity about capturing the world around me. Over time, this curiosity grew into a deep love for photography. I find joy in exploring the diverse landscapes and vibrant cultures of my homeland, always seeking to capture moments that tell a story.
                       </p>
-                      <p>Reach out and connect with any questions you may have, or simply drop me a line and tell me what you love the most in life.</p>
+                      <p className='mb-4'>
+                      In my work, I focus on a variety of subjects, from intimate portraits to dynamic street scenes and stunning landscapes. Each image is crafted with attention to detail, aiming to evoke emotion and convey a narrative. Through my lens, I strive to showcase the beauty and essence of every moment, turning the ordinary into the extraordinary.
+                      </p>
                   </div>
               </div>
           </div>
