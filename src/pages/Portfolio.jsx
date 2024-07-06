@@ -53,9 +53,9 @@ export default function Portfolio() {
     <main>
       <section id="portfolio">
         <div className="wrapper pt-[120px] pb-[50px] md:pt-[170px] md:pb-[100px]">
-          <div className="flex items-center justify-between flex-col gap-4 mb-[25px] lg:mb-[50px] lg:flex-row">
-            <h3>Search by category</h3>
-            <div className='flex flex-wrap justify-center gap-2'>
+          <div className="flex justify-between gap-y-4 gap-x-8 mb-[50px] flex-wrap">
+            <h2>Search by category</h2>
+            <div className='flex flex-wrap gap-y-2 gap-x-1'>
               {filterCategories.map((category, index) => (
                 <button 
                   key={index} 

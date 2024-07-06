@@ -23,7 +23,7 @@ export default function Services() {
               whileInView={{ width: "100%", opacity: 1 }}
               transition={{ duration: 1.5, ease: "easeInOut" }}
               viewport={{ once: true, amount: 0.3 }} // trigger animation once and when 50% of the component is in view
-              className={'bg-slate-100 h-[300px] md:h-[450px] absolute bottom-[25px] md:bottom-auto max-w-[90%] md:max-w-[40%] w-full -z-10 ' + (index % 2 === 0 ? '-left-4 md:-left-0' : '-right-4 md:-right-0')}
+              className={'bg-slate-50 h-[300px] md:h-[450px] absolute bottom-[25px] md:bottom-auto max-w-[90%] md:max-w-[40%] w-full -z-10 ' + (index % 2 === 0 ? '-left-4 md:-left-0' : '-right-4 md:-right-0')}
             ></motion.div>
             
             
