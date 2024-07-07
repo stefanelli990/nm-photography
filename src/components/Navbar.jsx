@@ -9,7 +9,7 @@ export default function Navbar({ open, setOpen }) {
                 <Link to='/' className="font-serif text-base lg:text-xl">
                     <img className="w-24" src={logo} alt="Nemanja Photography Logo"/>
                 </Link>
-                <button onClick={() => setOpen(!open)}  className="w-8 h-8 flex justify-center flex-col space-y-[7px] items-end group">
+                <button onClick={() => setOpen(!open)} aria-label="Toggle navigation menu" className="w-8 h-8 flex justify-center flex-col space-y-[7px] items-end group">
                     <div className="h-[0.1rem] w-6 bg-black group-hover:w-8 duration-500"></div>
                     <div className="h-[0.1rem] w-8 bg-black group-hover:w-8 duration-500"></div>
                     <div className="h-[0.1rem] w-4 bg-black group-hover:w-8 duration-500"></div>

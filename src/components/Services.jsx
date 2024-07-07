@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import servicesImg1 from '../assets/services-img-1.jpg';
-import servicesImg2 from '../assets/services-img-2.jpg';
-import servicesImg3 from '../assets/services-img-3.jpg';
+import servicesImg1 from '../assets/services-img-1.webp';
+import servicesImg2 from '../assets/services-img-2.webp';
+import servicesImg3 from '../assets/services-img-3.webp';
 
 export default function Services() {
 
