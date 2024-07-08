@@ -1,10 +1,14 @@
 import { FaPhoneAlt } from "react-icons/fa";
 import { BsFillEnvelopeFill } from "react-icons/bs";
 import { PiMapPinFill } from "react-icons/pi";
+import { motion } from 'framer-motion';
 
 export default function Contact() {
   return (
-    <main>
+    <motion.main initial={{ opacity: 0, y: 100 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: -100 }}
+    transition={{ duration: 0.5 }}>
       <section>
         <div className="wrapper pt-[120px] pb-[50px] md:pt-[170px] md:pb-[100px]">
           <div className="flex items-center flex-col md:flex-row gap-8 md:gap-16 lg:gap-24">
@@ -60,6 +64,6 @@ export default function Contact() {
           </div>
         </div>
       </section>
-    </main>
+    </motion.main>
   )
 }

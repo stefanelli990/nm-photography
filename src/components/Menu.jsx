@@ -74,14 +74,14 @@ export default function Menu({ open, setOpen }) {
 
     useEffect(() => {
         if (open) {
-            document.body.style.overflow = 'hidden';
+            document.body.style.overflowY = 'hidden';
         } else {
-            document.body.style.overflow = 'auto';
+            document.body.style.overflowY = 'auto';
         }
 
-        // Cleanup function to reset overflow when component unmounts or open changes
+      
         return () => {
-            document.body.style.overflow = 'auto';
+            document.body.style.overflowY = 'auto';
         };
     }, [open]);
 
@@ -89,7 +89,7 @@ export default function Menu({ open, setOpen }) {
     <>
         <motion.div animate={open ? 'open' : 'closed'} variants={variantsOverlay} className="bg-black/50 fixed inset-0 invisible h-full w-full z-10" onClick={() => setOpen(false)}></motion.div>
         <motion.div animate={open ? 'open' : 'closed'} variants={menuVariants} className="bg-white fixed top-0 -right-80 h-full flex items-center justify-center z-10 w-80">
-            <button onClick={() => setOpen(false)} className="h-8 w-8 absolute text-3xl top-8 right-8 duration-500 hover:rotate-90 hover:scale-[.75] ">
+            <button onClick={() => setOpen(false)} className="h-8 w-8 absolute text-3xl top-8 right-8 duration-500 hover:rotate-90 hover:scale-[.75] " aria-label="Close menu">
                 <div className="bg-black w-8 h-[0.1rem] rotate-45 relative top-[1px]"></div>
                 <div className="bg-black w-8 h-[0.1rem] -rotate-45"></div>
             </button>

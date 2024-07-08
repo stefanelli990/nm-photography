@@ -79,7 +79,7 @@ export default function Portfolio() {
             </div>
           </div>
 
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="wait" >
             <motion.div
               key={selectedCategory}
               className="columns-3"
