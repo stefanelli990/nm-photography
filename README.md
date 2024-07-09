@@ -15,9 +15,9 @@ Welcome to the NM Photography Portfolio website repository! This project showcas
 
 ## Technologies Used:
 
-- **React.js** for building UI.
-- **Tailwind CSS** for styling and layout design.
-- **Framer Motion** for animations and interactive elements.
+- **React.js**: for building UI.
+- **Tailwind CSS**: for styling and layout design.
+- **Framer Motion**: for animations and interactive elements.
 
 ## Installation
 
