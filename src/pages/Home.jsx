@@ -10,8 +10,8 @@ export default function Home() {
     return (
         <HelmetProvider>
         <Helmet>
-                <title>Nemanja Photography | Home</title>
-                <meta name="description" content="Welcome to Nemanja's photography portfolio. Discover breathtaking images and explore the artistry behind each shot." />
+                <title>NM Photography | Home</title>
+                <meta name="description" content="Welcome to NM Photography portfolio. Discover breathtaking images and explore the artistry behind each shot." />
             </Helmet>
         <PageAnimation>
             <main>

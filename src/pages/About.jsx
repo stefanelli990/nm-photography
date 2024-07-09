@@ -28,7 +28,7 @@ export default function About() {
               <div className="relative mb-8 w-full max-w-[400px] lg:mb-0 lg:w-1/2">
                 <motion.img
                   src={aboutImg}
-                  alt="Nemanja Mohenski posing"
+                  alt="NM about image"
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.75 }}

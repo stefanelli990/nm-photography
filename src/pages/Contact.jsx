@@ -10,10 +10,10 @@ export default function Contact() {
   return (
     <HelmetProvider>
       <Helmet>
-        <title>Nemanja Photography | Contact</title>
+        <title>NM Photography | Contact</title>
         <meta
           name="description"
-          content="Get in touch with Nemanja for photography inquiries, collaborations, or booking sessions. We're here to help you capture your moments beautifully."
+          content="Get in touch with NM for photography inquiries, collaborations, or booking sessions. We're here to help you capture your moments beautifully."
         />
       </Helmet>
       <PageAnimation>

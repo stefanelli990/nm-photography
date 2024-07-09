@@ -66,10 +66,10 @@ export default function Portfolio() {
   return (
     <HelmetProvider>
       <Helmet>
-        <title>Nemanja Photography | Portfolio</title>
+        <title>NM Photography | Portfolio</title>
         <meta
           name="description"
-          content="Browse Nemanja's extensive portfolio of photography, featuring a diverse range of styles and subjects."
+          content="Browse NM Photography extensive portfolio of photography, featuring a diverse range of styles and subjects."
         />
       </Helmet>
       <PageAnimation>
@@ -121,10 +121,10 @@ export default function Portfolio() {
               render={{
                 iconPrev: () => <LiaAngleLeftSolid size={40} />,
                 iconNext: () => <LiaAngleRightSolid size={40} />,
-                iconClose: () => <GrClose size={20} />,
+                iconClose: () => <GrClose size={32} />,
               }}
               styles={{
-                container: { backgroundColor: "rgba(0, 0, 0, .75)" },
+                container: { backgroundColor: "rgba(0, 0, 0, .85)" },
                 slide: { cursor: "grab" },
               }}
               open={open}

@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from 'framer-motion';
 
@@ -71,19 +70,6 @@ export default function Menu({ open, setOpen }) {
         {name: 'About', url: '/about'},
         {name: 'Contact', url: '/contact'},
     ]
-
-    useEffect(() => {
-        if (open) {
-            document.body.style.overflowY = 'hidden';
-        } else {
-            document.body.style.overflowY = 'auto';
-        }
-
-      
-        return () => {
-            document.body.style.overflowY = 'auto';
-        };
-    }, [open]);
 
   return (
     <>
