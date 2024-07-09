@@ -14,8 +14,8 @@ function App() {
 
   return (
     <>
-      <Layout open={open} setOpen={setOpen}>
       <ScrollToTop/> 
+      <Layout open={open} setOpen={setOpen}>
       <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />

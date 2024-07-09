@@ -1,13 +1,27 @@
 import Services from "../components/Services";
 import Hero from "../components/Hero";
 import Cta from "../components/Cta";
+import Footer from "../components/Footer";
+import InstagramSection from "../components/InstagramSection";
+import PageAnimation from "../components/PageAnimation";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 export default function Home() {
     return (
-        <main>
-            <Hero/>
-            <Services/>
-            <Cta/>
-        </main>
+        <HelmetProvider>
+        <Helmet>
+                <title>Nemanja Photography | Home</title>
+                <meta name="description" content="Welcome to Nemanja's photography portfolio. Discover breathtaking images and explore the artistry behind each shot." />
+            </Helmet>
+        <PageAnimation>
+            <main>
+                <Hero/>
+                <Services/>
+                <Cta/>
+                <InstagramSection/>
+                <Footer/>
+            </main>
+        </PageAnimation>
+        </HelmetProvider>
     )
 }

@@ -1,19 +1,23 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Footer from "../components/Footer";
+import InstagramSection from "../components/InstagramSection";
+import PageAnimation from "../components/PageAnimation";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import portfolioImg1 from "../assets/portfolio-img-1.jpg";
 import portfolioImg2 from "../assets/portfolio-img-2.jpg";
-import portfolioImg3 from "../assets/portfolio-img-3.jpg";
-import portfolioImg4 from "../assets/portfolio-img-4.jpg";
-import portfolioImg5 from "../assets/portfolio-img-5.jpg";
-import portfolioImg6 from "../assets/portfolio-img-6.jpeg";
-import portfolioImg7 from "../assets/portfolio-img-7.jpg";
-import portfolioImg8 from "../assets/portfolio-img-8.jpg";
-import portfolioImg9 from "../assets/portfolio-img-9.jpg";
-import portfolioImg10 from "../assets/portfolio-img-10.jpg";
-import portfolioImg11 from "../assets/portfolio-img-11.jpg";
-import portfolioImg12 from "../assets/portfolio-img-12.jpg";
+import portfolioImg3 from "../assets/portfolio-img-3.webp";
+import portfolioImg4 from "../assets/portfolio-img-4.webp";
+import portfolioImg5 from "../assets/portfolio-img-5.webp";
+import portfolioImg6 from "../assets/portfolio-img-6.webp";
+import portfolioImg7 from "../assets/portfolio-img-7.webp";
+import portfolioImg8 from "../assets/portfolio-img-8.webp";
+import portfolioImg9 from "../assets/portfolio-img-9.webp";
+import portfolioImg10 from "../assets/portfolio-img-10.webp";
+import portfolioImg11 from "../assets/portfolio-img-11.webp";
+import portfolioImg12 from "../assets/portfolio-img-12.webp";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 export default function Portfolio() {
   const [open, setOpen] = useState(false);
@@ -59,53 +63,72 @@ export default function Portfolio() {
   };
 
   return (
-    <main>
-      <section id="portfolio">
-        <div className="wrapper pt-[120px] pb-[50px] md:pt-[170px] md:pb-[100px]">
-          <div className="flex justify-between gap-y-4 gap-x-8 mb-[50px] flex-wrap">
-            <h2>Search by category</h2>
-            <div className="flex flex-wrap gap-y-2 gap-x-1">
-              {filterCategories.map((category, index) => (
-                <button
-                  key={index}
-                  onClick={() => handleFilterClick(category)}
-                  className={`px-3 py-1 capitalize ${
-                    selectedCategory === category ? "active" : ""
-                  }`}
-                >
-                  {category}
-                </button>
-              ))}
+    <HelmetProvider>
+      <Helmet>
+        <title>Nemanja Photography | Portfolio</title>
+        <meta
+          name="description"
+          content="Browse Nemanja's extensive portfolio of photography, featuring a diverse range of styles and subjects."
+        />
+      </Helmet>
+      <PageAnimation>
+        <main>
+          <div className="wrapper pt-[120px] pb-[50px] md:pt-[170px] md:pb-[100px]">
+            <div className="flex justify-between gap-y-4 gap-x-8 mb-[50px] flex-wrap">
+              <h2>Search by category</h2>
+              <div className="flex flex-wrap gap-y-2 gap-x-1">
+                {filterCategories.map((category, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handleFilterClick(category)}
+                    className={`px-3 py-1 capitalize ${
+                      selectedCategory === category ? "active" : ""
+                    }`}
+                  >
+                    {category}
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
 
-          <AnimatePresence mode="wait" >
-            <motion.div
-              key={selectedCategory}
-              className="columns-3"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-            >
-              {filteredImages.map((img, index) => (
-                <div className="mb-4 overflow-hidden cursor-pointer group" key={index}
-                  onClick={() => handleImageClick(index)} >
-                  <img src={img.path} alt="" className="group-hover:scale-125 duration-500"/>
-                </div>
-              ))}
-            </motion.div>
-          </AnimatePresence>
-        </div>
-        {open && (
-          <Lightbox
-            open={open}
-            close={() => setOpen(false)}
-            slides={filteredImages.map((image) => ({ src: image.path }))}
-            index={currentImageIndex}
-          />
-        )}
-      </section>
-    </main>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={selectedCategory}
+                className="columns-3"
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+              >
+                {filteredImages.map((img, index) => (
+                  <div
+                    className="mb-4 overflow-hidden cursor-pointer group"
+                    key={index}
+                    onClick={() => handleImageClick(index)}
+                  >
+                    <img
+                      src={img.path}
+                      alt=""
+                      className="group-hover:scale-125 duration-500"
+                    />
+                  </div>
+                ))}
+              </motion.div>
+            </AnimatePresence>
+          </div>
+          {open && (
+            <Lightbox
+              open={open}
+              close={() => setOpen(false)}
+              slides={filteredImages.map((image) => ({ src: image.path }))}
+              index={currentImageIndex}
+            />
+          )}
+
+          <InstagramSection />
+          <Footer />
+        </main>
+      </PageAnimation>
+    </HelmetProvider>
   );
 }
