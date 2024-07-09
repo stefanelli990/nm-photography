@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import { motion, AnimatePresence } from "framer-motion";
+import { LiaAngleLeftSolid, LiaAngleRightSolid } from "react-icons/lia";
+import { GrClose } from "react-icons/gr";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 import Footer from "../components/Footer";
 import InstagramSection from "../components/InstagramSection";
 import PageAnimation from "../components/PageAnimation";
-import Lightbox from "yet-another-react-lightbox";
-import "yet-another-react-lightbox/styles.css";
 import portfolioImg1 from "../assets/portfolio-img-1.jpg";
 import portfolioImg2 from "../assets/portfolio-img-2.jpg";
 import portfolioImg3 from "../assets/portfolio-img-3.webp";
@@ -17,7 +20,6 @@ import portfolioImg9 from "../assets/portfolio-img-9.webp";
 import portfolioImg10 from "../assets/portfolio-img-10.webp";
 import portfolioImg11 from "../assets/portfolio-img-11.webp";
 import portfolioImg12 from "../assets/portfolio-img-12.webp";
-import { Helmet, HelmetProvider } from "react-helmet-async";
 
 export default function Portfolio() {
   const [open, setOpen] = useState(false);
@@ -55,7 +57,6 @@ export default function Portfolio() {
     setOpen(true);
   };
 
-  // Animation variants for the container
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { duration: 0.25 } },
@@ -90,7 +91,6 @@ export default function Portfolio() {
                 ))}
               </div>
             </div>
-
             <AnimatePresence mode="wait">
               <motion.div
                 key={selectedCategory}
@@ -118,13 +118,21 @@ export default function Portfolio() {
           </div>
           {open && (
             <Lightbox
+              render={{
+                iconPrev: () => <LiaAngleLeftSolid size={40} />,
+                iconNext: () => <LiaAngleRightSolid size={40} />,
+                iconClose: () => <GrClose size={20} />,
+              }}
+              styles={{
+                container: { backgroundColor: "rgba(0, 0, 0, .75)" },
+                slide: { cursor: "grab" },
+              }}
               open={open}
               close={() => setOpen(false)}
               slides={filteredImages.map((image) => ({ src: image.path }))}
               index={currentImageIndex}
             />
           )}
-
           <InstagramSection />
           <Footer />
         </main>
