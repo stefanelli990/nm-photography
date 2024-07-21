@@ -3,7 +3,6 @@ import aboutImg from "../assets/about-img.jpg";
 import PageAnimation from "../components/PageAnimation";
 import Footer from "../components/Footer";
 import InstagramSection from "../components/InstagramSection";
-import { motion } from "framer-motion";
 
 export default function About() {
   return (
@@ -26,19 +25,10 @@ export default function About() {
                 </p>
               </div>
               <div className="relative mb-8 w-full max-w-[400px] lg:mb-0 lg:w-1/2">
-                <motion.img
-                  src={aboutImg}
-                  alt="NM about image"
-                  initial={{ opacity: 0, x: -50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.75 }}
+                <img src={aboutImg} alt="NM about image"
                 />
-                <motion.div
-                  className="bg-slate-50 w-full h-full absolute left-4 top-4 lg:left-8 lg:top-8 -z-[1]"
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.75 }}
-                ></motion.div>
+                <div
+                  className="bg-slate-50 w-full h-full absolute left-4 top-4 lg:left-8 lg:top-8 -z-[1]"></div>
               </div>
               <div className="lg:w-1/2">
                 <div className="hidden mb-8 lg:block">
