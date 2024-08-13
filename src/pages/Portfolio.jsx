@@ -1,67 +1,45 @@
-import { useState } from "react";
-import { Helmet, HelmetProvider } from "react-helmet-async";
-import { motion, AnimatePresence } from "framer-motion";
-import { LiaAngleLeftSolid, LiaAngleRightSolid } from "react-icons/lia";
-import { GrClose } from "react-icons/gr";
-import Lightbox from "yet-another-react-lightbox";
-import "yet-another-react-lightbox/styles.css";
-import Footer from "../components/Footer";
-import InstagramSection from "../components/InstagramSection";
-import PageAnimation from "../components/PageAnimation";
-import portfolioImg1 from "../assets/portfolio-img-1.jpg";
-import portfolioImg2 from "../assets/portfolio-img-2.jpg";
-import portfolioImg3 from "../assets/portfolio-img-3.webp";
-import portfolioImg4 from "../assets/portfolio-img-4.webp";
-import portfolioImg5 from "../assets/portfolio-img-5.webp";
-import portfolioImg6 from "../assets/portfolio-img-6.webp";
-import portfolioImg7 from "../assets/portfolio-img-7.webp";
-import portfolioImg8 from "../assets/portfolio-img-8.webp";
-import portfolioImg9 from "../assets/portfolio-img-9.webp";
-import portfolioImg10 from "../assets/portfolio-img-10.webp";
-import portfolioImg11 from "../assets/portfolio-img-11.webp";
-import portfolioImg12 from "../assets/portfolio-img-12.webp";
+import { useState, useEffect } from "react"
+import { Helmet, HelmetProvider } from "react-helmet-async"
+import { motion, AnimatePresence } from "framer-motion"
+import { LiaAngleLeftSolid, LiaAngleRightSolid } from "react-icons/lia"
+import { GrClose } from "react-icons/gr"
+import Lightbox from "yet-another-react-lightbox"
+import "yet-another-react-lightbox/styles.css"
+import Footer from "../components/Footer"
+import InstagramSection from "../components/InstagramSection"
+import PageAnimation from "../components/PageAnimation"
 
 export default function Portfolio() {
-  const [open, setOpen] = useState(false);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [portfolioImages, setPortfolioImages] = useState([])
+  const [open, setOpen] = useState(false)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [selectedCategory, setSelectedCategory] = useState("all")
 
-  const filterCategories = ["all", "weddings", "business", "model", "party"];
+  const filterCategories = ["all", "business", "fashion", "portrait", "prom", "studio"]
 
-  const portfolioImages = [
-    { path: portfolioImg2, category: "weddings" },
-    { path: portfolioImg3, category: "weddings" },
-    { path: portfolioImg1, category: "weddings" },
-    { path: portfolioImg4, category: "business" },
-    { path: portfolioImg5, category: "business" },
-    { path: portfolioImg6, category: "business" },
-    { path: portfolioImg7, category: "model" },
-    { path: portfolioImg8, category: "model" },
-    { path: portfolioImg9, category: "model" },
-    { path: portfolioImg10, category: "party" },
-    { path: portfolioImg11, category: "party" },
-    { path: portfolioImg12, category: "party" },
-  ];
+  useEffect(() => {
+    fetch("/data/portfolio-images.json")
+      .then((response) => response.json())
+      .then((data) => setPortfolioImages(data))
+      .catch((error) => console.error("Error fetching data:", error));
+  }, [])
 
   const handleFilterClick = (category) => {
-    setSelectedCategory(category);
+    setSelectedCategory(category)
   };
 
-  const filteredImages =
-    selectedCategory === "all"
-      ? portfolioImages
-      : portfolioImages.filter((image) => image.category === selectedCategory);
+  const filteredImages = selectedCategory === "all" ? portfolioImages : portfolioImages.filter((image) => image.category === selectedCategory)
 
   const handleImageClick = (index) => {
     setCurrentImageIndex(index);
     setOpen(true);
-  };
+  }
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { duration: 0.25 } },
     exit: { opacity: 0, transition: { duration: 0.25 } },
-  };
+  }
 
   return (
     <HelmetProvider>
@@ -69,7 +47,7 @@ export default function Portfolio() {
         <title>NM Photography | Portfolio</title>
         <meta
           name="description"
-          content="Browse NM Photography extensive portfolio of photography, featuring a diverse range of styles and subjects."
+          content="Browse NM Photography's extensive portfolio of photography, featuring a diverse range of styles and subjects."
         />
       </Helmet>
       <PageAnimation>
