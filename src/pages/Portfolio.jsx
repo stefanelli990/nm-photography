@@ -88,6 +88,7 @@ export default function Portfolio() {
                       src={img.path}
                       alt=""
                       className="group-hover:scale-125 duration-500"
+                      loading="lazy"
                     />
                   </div>
                 ))}
