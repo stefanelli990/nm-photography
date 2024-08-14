@@ -4,8 +4,7 @@ export default function Footer() {
 
   return (
     <footer>
-            <div className="wrapper py-[50px] md:py-[100px] text-sm flex flex-col space-y-8 text-center justify-between items-center md:flex-row md:space-y-0">
-                <p>&copy; {currentYear} NM Photography. Developed by <a href="https://github.com/stefanelli990" target="_blank" className="underline">stefanelli990</a></p>
+            <div className="wrapper py-[50px] md:py-[100px] text-sm flex flex-col space-y-8 text-center justify-between items-center md:flex-row-reverse md:space-y-0">
                 <div className="flex space-x-6">
                     <a href="https://www.instagram.com/nemanjaphotography_/" target="_blank" aria-label="Visit Instagram page">
                         Instagram
@@ -17,6 +16,7 @@ export default function Footer() {
                         iStock
                     </a>
                 </div>
+                <p>&copy; {currentYear} NM Photography. Developed by <a href="https://github.com/stefanelli990" target="_blank" className="underline">stefanelli990</a></p>
             </div>
         </footer>
   )

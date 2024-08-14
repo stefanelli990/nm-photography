@@ -13,9 +13,9 @@ export default function Portfolio() {
   const [portfolioImages, setPortfolioImages] = useState([])
   const [open, setOpen] = useState(false)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
-  const [selectedCategory, setSelectedCategory] = useState("all")
+  const [selectedCategory, setSelectedCategory] = useState("business") // Default to the first category
 
-  const filterCategories = ["all", "business", "fashion", "portrait", "prom", "studio"]
+  const filterCategories = ["business", "fashion", "portrait", "prom", "studio"]
 
   useEffect(() => {
     fetch("/data/portfolio-images.json")
@@ -26,9 +26,9 @@ export default function Portfolio() {
 
   const handleFilterClick = (category) => {
     setSelectedCategory(category)
-  };
+  }
 
-  const filteredImages = selectedCategory === "all" ? portfolioImages : portfolioImages.filter((image) => image.category === selectedCategory)
+  const filteredImages = portfolioImages.filter((image) => image.category === selectedCategory)
 
   const handleImageClick = (index) => {
     setCurrentImageIndex(index);
@@ -52,7 +52,7 @@ export default function Portfolio() {
       </Helmet>
       <PageAnimation>
         <main>
-          <div className="wrapper pt-[120px] pb-[50px] md:pt-[170px] md:pb-[100px]">
+          <div className="wrapper min-h-screen pt-[120px] pb-[50px] md:pt-[170px] md:pb-[100px]">
             <div className="flex justify-between gap-y-4 gap-x-8 mb-[50px] flex-wrap">
               <h2>Search by category</h2>
               <div className="flex flex-wrap gap-y-2 gap-x-1">
@@ -72,7 +72,7 @@ export default function Portfolio() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={selectedCategory}
-                className="columns-3"
+                className="grid grid-cols-1 gap-4 lg:gap-12"
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
@@ -80,15 +80,15 @@ export default function Portfolio() {
               >
                 {filteredImages.map((img, index) => (
                   <div
-                    className="mb-4 overflow-hidden cursor-pointer group"
+                    className="overflow-hidden h-[calc(100vh-69px)] cursor-pointer group"
                     key={index}
                     onClick={() => handleImageClick(index)}
                   >
                     <img
+                    loading="lazy"
                       src={img.path}
                       alt=""
                       className="group-hover:scale-125 duration-500"
-                      loading="lazy"
                     />
                   </div>
                 ))}
