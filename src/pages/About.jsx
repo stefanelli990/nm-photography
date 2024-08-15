@@ -28,7 +28,7 @@ export default function About() {
                 <img src={aboutImg} alt="NM about image"
                 />
                 <div
-                  className="bg-slate-50 w-full h-full absolute left-4 top-4 lg:left-8 lg:top-8 -z-[1]"></div>
+                  className="bg-slate-50 w-full h-full absolute -left-4 top-4 lg:left-8 lg:top-8 -z-[1]"></div>
               </div>
               <div className="lg:w-1/2">
                 <div className="hidden mb-8 lg:block">

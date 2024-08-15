@@ -80,7 +80,7 @@ export default function Portfolio() {
               >
                 {filteredImages.map((img, index) => (
                   <div
-                    className="overflow-hidden h-[calc(100vh-69px)] cursor-pointer group"
+                    className="overflow-hidden aspect-square sm:aspect-auto md:h-[calc(100vh-69px)] cursor-pointer group"
                     key={index}
                     onClick={() => handleImageClick(index)}
                   >
