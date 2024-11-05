@@ -1,20 +1,81 @@
-import { Link } from "react-router-dom";
-import logo from '../assets/nm-logo.svg';
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { navLinks } from "../data";
+import logo from "../assets/nm-logo.svg";
+import Btn from "../components/Btn";
+import Menu from "../components/Menu";
 
-export default function Navbar({ open, setOpen }) {
+export default function Navbar() {
+  const [open, setOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const location = useLocation();
 
-    return (
-        <header className="fixed top-0 left-0 right-0 z-10 bg-white">
-            <div className="wrapper py-3 flex items-center justify-between text-black">
-                <Link to='/' className="font-serif text-base lg:text-xl">
-                    <img className="w-24" src={logo} alt="NM Photography Logo"/>
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY && window.scrollY > 5) {
+        // scrolling down
+        setIsVisible(false);
+      } else if (window.scrollY < lastScrollY) {
+        // scrolling up
+        setIsVisible(true);
+      }
+      lastScrollY = window.scrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <>
+    <header
+      className={`fixed inset-x-0 bg-white z-10 transition-transform duration-300 ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
+      }`}
+    >
+      <div className="wrapper h-[90px] flex items-center justify-between text-black">
+        <Link to="/">
+          <img className="w-[100px]" src={logo} alt="NM Photography Logo" />
+        </Link>
+        <nav>
+          <div className="hidden md:flex items-center gap-6">
+            {navLinks.map((navLink) => (
+              <div key={navLink.url} className="group relative uppercase">
+                <Link
+                className="navlink"
+                  to={navLink.url}
+                  aria-current={
+                    location.pathname === navLink.url ? "page" : undefined
+                  }
+                >
+                  {navLink.name}
                 </Link>
-                <button onClick={() => setOpen(!open)} aria-label="Open menu" className="w-8 h-8 flex justify-center flex-col space-y-[7px] items-end group">
-                    <div className="h-[0.1rem] w-6 bg-black group-hover:w-8 duration-500"></div>
-                    <div className="h-[0.1rem] w-8 bg-black group-hover:w-8 duration-500"></div>
-                    <div className="h-[0.1rem] w-4 bg-black group-hover:w-8 duration-500"></div>
-                </button>
-            </div>
-        </header>
-    )
+                {location.pathname === navLink.url && (
+                  <div className="absolute -bottom-1 bg-black h-[1px] w-full"></div>
+                )}
+              </div>
+            ))}
+            <Btn
+              btnText={'get started'}
+              btnPath={'/contact'}
+              btnStyle={'btn btn-outlined btn-outlined-black'}
+            />
+          </div>
+        </nav>
+        <button
+          onClick={() => setOpen(!open)}
+          aria-label="Open menu"
+          className="w-8 h-8 flex justify-center flex-col space-y-[7px] items-end group md:hidden"
+        >
+          <div className="h-[0.1rem] w-6 bg-black group-hover:w-8 duration-500"></div>
+          <div className="h-[0.1rem] w-8 bg-black group-hover:w-8 duration-500"></div>
+          <div className="h-[0.1rem] w-4 bg-black group-hover:w-8 duration-500"></div>
+        </button>
+      </div>
+    </header>
+    <Menu open={open} setOpen={setOpen}/>
+    </>
+  );
 }

@@ -2,9 +2,10 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import { FaPhoneAlt } from "react-icons/fa";
 import { BsFillEnvelopeFill } from "react-icons/bs";
 import { PiMapPinFill } from "react-icons/pi";
-import PageAnimation from "../components/PageAnimation";
 import Footer from "../components/Footer";
-import InstagramSection from "../components/InstagramSection";
+import Navbar from "../components/Navbar";
+import Cta from "../components/Cta";
+import Btn from "../components/Btn";
 
 export default function Contact() {
   return (
@@ -16,20 +17,21 @@ export default function Contact() {
           content="Get in touch with NM for photography inquiries, collaborations, or booking sessions. We're here to help you capture your moments beautifully."
         />
       </Helmet>
-      <PageAnimation>
+        <Navbar/>
         <main>
-          <div className="wrapper pt-[120px] pb-[50px] md:pt-[170px] md:pb-[100px] ">
+          <section>
+          <div className="wrapper">
             <div className="flex items-center flex-col md:flex-row gap-8 md:gap-16 lg:gap-24">
               <div className="flex-1">
-                <h2>Get in touch</h2>
-                <p className="pt-4">
+                <h2 className="mb-6">Get in touch</h2>
+                <p>
                   Whether you're looking to capture the beauty of a special
                   moment, need professional images for your business, or simply
                   want to discuss a creative idea, I'm here to help. Feel free
                   to reach out if you have a project in mind, want to
                   collaborate, or just want to chat about photography.
                 </p>
-                <ul className="space-y-3 hidden md:block md:pt-8">
+                <ul className="space-y-3 hidden md:block md:mt-6">
                   <li className="flex items-center space-x-3">
                     <BsFillEnvelopeFill />
                     <span>nemanja.mohenski@gmail.com</span>
@@ -82,9 +84,7 @@ export default function Contact() {
                       required
                     ></textarea>
                   </div>
-                  <button className="p-4 w-full bg-black text-white">
-                    Send Message
-                  </button>
+                  <Btn btnText={'send message'} btnStyle={'btn btn-filled w-full'}/>
                 </form>
               </div>
               <ul className="space-y-3 w-full md:hidden">
@@ -103,10 +103,10 @@ export default function Contact() {
               </ul>
             </div>
           </div>
-          <InstagramSection />
-          <Footer />
+          </section>
+          <Cta/>
         </main>
-      </PageAnimation>
+        <Footer />
     </HelmetProvider>
   );
 }

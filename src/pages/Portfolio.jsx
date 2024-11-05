@@ -1,28 +1,22 @@
-import { useState, useEffect } from "react"
-import { Helmet, HelmetProvider } from "react-helmet-async"
-import { motion, AnimatePresence } from "framer-motion"
-import { LiaAngleLeftSolid, LiaAngleRightSolid } from "react-icons/lia"
-import { GrClose } from "react-icons/gr"
-import Lightbox from "yet-another-react-lightbox"
-import "yet-another-react-lightbox/styles.css"
-import Footer from "../components/Footer"
-import InstagramSection from "../components/InstagramSection"
-import PageAnimation from "../components/PageAnimation"
+import { useState } from "react";
+import { Helmet, HelmetProvider } from "react-helmet-async";
+import { motion, AnimatePresence } from "framer-motion";
+import { LiaAngleLeftSolid, LiaAngleRightSolid } from "react-icons/lia";
+import { GrClose } from "react-icons/gr";
+import { filterCategories } from "../data";
+import Lightbox from "yet-another-react-lightbox";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
+import Cta from "../components/Cta";
+import "yet-another-react-lightbox/styles.css";
+import { portfolioImages } from "../data";
 
 export default function Portfolio() {
-  const [portfolioImages, setPortfolioImages] = useState([])
+
   const [open, setOpen] = useState(false)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [selectedCategory, setSelectedCategory] = useState("business") // Default to the first category
 
-  const filterCategories = ["business", "fashion", "portrait", "prom", "studio"]
-
-  useEffect(() => {
-    fetch("/data/portfolio-images.json")
-      .then((response) => response.json())
-      .then((data) => setPortfolioImages(data))
-      .catch((error) => console.error("Error fetching data:", error));
-  }, [])
 
   const handleFilterClick = (category) => {
     setSelectedCategory(category)
@@ -50,9 +44,10 @@ export default function Portfolio() {
           content="Browse NM Photography's extensive portfolio of photography, featuring a diverse range of styles and subjects."
         />
       </Helmet>
-      <PageAnimation>
+   <Navbar/>
         <main>
-          <div className="wrapper min-h-screen pt-[120px] pb-[50px] md:pt-[170px] md:pb-[100px]">
+          <section>
+          <div className="wrapper">
             <div className="flex justify-between gap-y-4 gap-x-8 mb-[50px] flex-wrap">
               <h2>Search by category</h2>
               <div className="flex flex-wrap gap-y-2 gap-x-1">
@@ -112,10 +107,10 @@ export default function Portfolio() {
               index={currentImageIndex}
             />
           )}
-          <InstagramSection />
-          <Footer />
+          </section>
+          <Cta/>
         </main>
-      </PageAnimation>
+        <Footer />
     </HelmetProvider>
   );
 }

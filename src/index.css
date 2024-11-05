@@ -1,19 +1,130 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
-
 @tailwind base;
+h1, h2, h3 {
+  line-height: 1.1;
+}
+p {
+  line-height: 170%;
+}
+
 @tailwind components;
+
+.navlink {
+  position: relative;
+}
+.navlink::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: black;
+  left: 0;
+  bottom: -5px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 300ms ease-in-out;
+}
+.navlink:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* btn general styles */
+.btn {
+  width: fit-content;
+  width: intrinsic;
+  width: -moz-max-content;
+  width: -webkit-max-content;
+  text-align: center;
+  padding: 1.25rem 1.5rem;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  z-index: 5;
+  border: 1px solid;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: .2s;
+}
+.btn::after {
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  transform-origin: top center;
+  transform: scale3d(1, 0, 1);
+  transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.btn:hover::after {
+  height: 100%;
+  width: 100%;
+  transform: scale3d(1, 1, 1);
+  transform-origin: bottom center;
+}
+/* btn filled */
+.btn-filled {
+  color: #fff;
+  background: black;
+  border-color: black;
+}
+.btn-filled::before {
+  background: black;
+  content: "";
+  position: absolute;
+  z-index: -1;
+}
+.btn-filled::after {
+  background: #FFF;
+  content: "";
+  position: absolute;
+  z-index: -1;
+}
+.btn-filled:hover {
+  color: #000;
+}
+/* outlined */
+.btn-outlined {
+  background: transparent;
+}
+.btn-outlined::before,
+.btn-outlined::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+}
+/* outlined black */
+.btn-outlined-black {
+  color: black;
+  border-color: black;
+}
+.btn-outlined-black::after {
+  background: #000;
+}
+.btn-outlined-black:hover {
+  color: #fff;
+}
+/* outlined white */
+.btn-outlined-white {
+  color: white;
+  border-color: white;
+}
+.btn-outlined-white::after {
+  background: #fff;
+}
+.btn-outlined-white:hover {
+  color: #000;
+}
+
 @tailwind utilities;
 
 @layer base {
-  * {
-    @apply tracking-wide;
-  }
   body {
     @apply bg-white font-sans text-sm;
   }
+  main {
+    @apply pt-[90px];
+  }
   h1, h2, h3, h4 {
-    @apply font-serif uppercase;
+    @apply font-serif font-medium uppercase;
   }
   h1 {
     @apply text-[10vw] leading-[100%] sm:text-6xl;
@@ -22,16 +133,16 @@
     @apply text-3xl md:text-4xl;
   }
   h3 {
-    @apply text-2xl md:text-3xl;
+    @apply text-xl md:text-2xl capitalize;
   }
   h4 {
     @apply text-lg md:text-xl;
   }
-  p {
-    @apply leading-relaxed;
-  }
   img {
     @apply w-full h-full object-cover;
+  }
+  section, footer {
+    @apply my-[50px] lg:my-[100px];
   }
 }
 
@@ -39,9 +150,18 @@
   .wrapper {
     @apply px-4 max-w-6xl mx-auto;
   }
-  .btn {
-    @apply px-8 py-4 border border-white text-sm inline-block;
+  /* .btn {
+    @apply px-7 py-4 border text-sm uppercase inline-block;
   }
+  .btn-dark {
+    @apply text-white bg-black border-black;
+  }
+  .btn-white-outline {
+    @apply border-white text-white;
+  }
+  .btn-dark-outline {
+    @apply border-black text-black;
+  } */
   .inputs {
     @apply border border-slate-200 p-3 w-full outline-none;
   }

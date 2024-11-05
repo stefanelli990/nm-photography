@@ -1,5 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { motion } from 'framer-motion';
+import { navLinks } from "../data";
+import Btn from "./Btn";
 
 const transitionProps = {
     type: 'spring',
@@ -62,33 +64,28 @@ const navLinkVariants = {
 };
 
 export default function Menu({ open, setOpen }) {
-    const location = useLocation();
 
-    const navLinks = [
-        {name: 'Home', url: '/'},
-        {name: 'Portfolio', url: '/portfolio'},
-        {name: 'About', url: '/about'},
-        {name: 'Contact', url: '/contact'},
-    ]
+  const location = useLocation();
 
   return (
-    <>
+    <div className="md:hidden">
         <motion.div animate={open ? 'open' : 'closed'} variants={variantsOverlay} className="bg-black/50 fixed inset-0 invisible h-full w-full z-10" onClick={() => setOpen(false)}></motion.div>
         <motion.div animate={open ? 'open' : 'closed'} variants={menuVariants} className="bg-white fixed top-0 -right-80 h-full flex items-center justify-center z-10 w-80">
             <button onClick={() => setOpen(false)} className="h-8 w-8 absolute text-3xl top-8 right-8 duration-500 hover:rotate-90 hover:scale-[.75] " aria-label="Close menu">
                 <div className="bg-black w-8 h-[0.1rem] rotate-45 relative top-[1px]"></div>
                 <div className="bg-black w-8 h-[0.1rem] -rotate-45"></div>
             </button>
-            <motion.ul animate={open ? 'open' : 'closed'} variants={navLinksVariants} className="space-y-8 text-xl">
+            <motion.ul animate={open ? 'open' : 'closed'} variants={navLinksVariants} className="space-y-8 uppercase text-xl">
                 {navLinks.map((navLink, index) => (
-                    <motion.li key={index} variants={navLinkVariants} className="group relative uppercase">
-                        <Link to={navLink.url} onClick={() => setOpen(false)}>{navLink.name}</Link>
-                        {location.pathname === navLink.url && <div className="absolute -bottom-1 bg-black h-[1px] w-5 group-hover:w-5"></div>}
-                        <div className="absolute -bottom-1 bg-black h-[1px] w-0 group-hover:w-5 transition-all duration-300"></div>
+                    <motion.li key={index} variants={navLinkVariants}>
+                        <Link className={`hover:opacity-25 duration-300 ${location.pathname === navLink.url ? 'opacity-25' : ''}`} to={navLink.url} onClick={() => setOpen(false)}>{navLink.name}</Link>
                     </motion.li>
                 ))}
+                <motion.li variants={navLinkVariants} onClick={() => setOpen(false)}>
+                    <Btn btnPath={'/contact'} btnText={'get started'} btnStyle={'btn btn-outlined btn-outlined-black'}/>
+                </motion.li>
             </motion.ul>
         </motion.div>
-    </>
+    </div>
   )
 }
