@@ -7,7 +7,7 @@ export default function Cta() {
         <div style={{ backgroundImage: `url(${ctaImage})` }} className="absolute top-0 left-0 bg-center bg-cover h-full w-full -z-[2]"></div>
         <div className="wrapper ">
 
-            <div className='mx-auto max-w-2xl flex flex-col gap-6 justify-center items-center text-center text-white'>
+            <div className='sm:mx-auto max-w-lg md:max-w-2xl flex flex-col gap-6 sm:justify-center sm:items-center sm:text-center text-white'>
             <h2>Capture Moments, Create timeless Memories</h2>
             <p>Don’t miss out on the opportunity to turn your memories into timeless art. I’m excited to collaborate with you and create stunning visuals that reflect who you are, preserving moments you’ll cherish for years to come. Let’s make something extraordinary that you’ll be proud to share.</p>
             <Btn btnPath={'/contact'} btnText={'get started'} btnStyle={'btn btn-outlined btn-outlined-white'}/>
