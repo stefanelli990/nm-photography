@@ -34,9 +34,9 @@ p {
   width: intrinsic;
   width: -moz-max-content;
   width: -webkit-max-content;
-  text-align: center;
   padding: 1.25rem 1.5rem;
   display: flex;
+  justify-content: center;
   position: relative;
   overflow: hidden;
   z-index: 5;
