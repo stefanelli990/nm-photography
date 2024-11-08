@@ -14,9 +14,6 @@ export default {
       fontFamily: {
         sans: ['Open Sans', 'sans-serif'],
         serif: ['Playfair Display', 'serif'],
-      },
-      colors: {
-        primary: '#bb996c'
       }
     },
   },
